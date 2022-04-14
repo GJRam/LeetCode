@@ -6,8 +6,8 @@ bool isValid(std::string s) {
     std::unordered_map<char,char> mp;
     std::stack<char> stk;
     mp.emplace(')', '(');
-    mp.insert(']', '[');
-    mp.insert('}', '{');
+    mp.emplace(']', '[');
+    mp.emplace('}', '{');
     for (auto const & i:s)
     {
         if ( i == ')' || i == ']' || i == '}')
@@ -19,6 +19,8 @@ bool isValid(std::string s) {
             stk.emplace(i);
         }
     }
-    
     return stk.size() == 0;
+}
+int main() {
+    isValid("()()()");
 }
